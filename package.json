@@ -20,7 +20,7 @@
     "react-redux": "^9.1.2",
     "react-responsive-carousel": "^3.2.23",
     "redux-persist": "^6.0.0",
-    "stripe": "^17.2.1"
+    "stripe": "^17.3.0"
   },
   "devDependencies": {
     "@types/node": "^20",

@@ -8,7 +8,7 @@ import { HiOutlineSearch } from "react-icons/hi";
 import  Link  from "next/link";
 import { useDispatch, useSelector } from "react-redux";
 import { stateProps } from "../../../type";
-import { useSession, signIn, signOut } from "next-auth/react";
+import { useSession, signIn} from "next-auth/react";
 import { addUser } from "@/store/nextSlice";
 
 const Header = () => {
@@ -17,15 +17,16 @@ const Header = () => {
         (state: stateProps) => state.next
     );
     const {data:session} = useSession();
-        useEffect(()=>{
-            if(session){
-                dispatch(addUser({
-                    namr: session?.user?.name,
-                    email:session?.user?.email,
-                    image:session?.user?.image,
-                }))
-            }
-        },[session]);
+    useEffect(() => {
+        if (session) {
+            dispatch(addUser({
+                name: session?.user?.name,
+                email: session?.user?.email,
+                image: session?.user?.image,
+            }));
+        }
+    }, [session, dispatch]);
+    
     
     return (
     <div className="w-full h-20 bg-amazon_blue text-lightText sticky top-0 z-50"> 

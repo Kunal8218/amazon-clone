@@ -19,6 +19,10 @@ const Banner = () => {
 
                 </div>
                 <div className="relative">
+                    <Image priority src={sliderImg_2} alt="sliderImg" />
+
+                </div>
+                <div className="relative">
                     <Image src={sliderImg_3} alt="sliderImg" />
 
                 </div>

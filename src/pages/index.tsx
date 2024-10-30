@@ -1,30 +1,27 @@
 import Banner from "@/components/Banner";
-import Products from "@/components/products";
 import { ProductProps } from "../../type";
+import Products from "@/components/products";
 
 interface Props {
-  productData: ProductProps
+  productData: ProductProps[];
 }
 
-export default function Home({productData}: Props) {
- 
-    console.log(productData);
-
+export default function Home({ productData }: Props) {
+  console.log(productData);
   return (
-    
-      <main>
-       
-        <div>
-             <Banner />
-             <Products productData= {productData} />
+    <main>
+      <div className="max-w-screen-2xl mx-auto">
+        <Banner />
+        <div className="relative md:-mt-20 lgl:-mt-32 xl:-mt-60 z-20 mb-10">
+          <Products productData={productData} />
         </div>
-      
-      </main>
+      </div>
+    </main>
   );
 }
 
-export const getServerSideProps = async() =>{
-  const res = await fetch("https://fakestoreapi.com/products")
+export const getServerSideProps = async () => {
+  const res = await fetch("https://fakestoreapi.com/products");
   const productData = await res.json();
-  return {props: {productData}};
-}
+  return { props: { productData } };
+};
